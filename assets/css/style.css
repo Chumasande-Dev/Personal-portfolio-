@@ -369,71 +369,167 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 /*-------------------------------------
         6.  Skills
 --------------------------------------*/
+<style>
 .skills {
-    
+    padding: 80px 0;
+    background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+    color: #fff;
+    min-height: 100vh;
 }
-.skill-content{padding: 50px 0 80px;}
-.single-skill-content{padding-top: 100px;}
+
 .section-heading h2 {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 60px;
     text-transform: uppercase;
-    padding-bottom: 50px;
-    border-bottom: 1px solid #e5ebf2;
-}
-.single-progress-txt {
-    display: flex;
-}
-.single-progress-txt h3 {
-    width: 10%;
-    color: #a606c3;
+    color: #ecf0f1;
     position: relative;
-    top: 6px;
-    left: 20px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-.barWrapper {
-    font-weight: 400;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-.progress {
-    border-radius:3px;
-    overflow: visible;
-    background: #e6ecf3;
-    height:8px;
-    margin-top: 15px;
-    width: 85%;
-    margin-bottom: 37px;
-}
-.progress-bar {
-   background: #b636ff;
+
+.section-heading h2::after {
+    content: '';
+    width: 100px;
+    height: 6px;
+    background: linear-gradient(to right, #00c4ff, #ff007a);
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 3px;
-   -webkit-transition: width 1.5s ease-in-out;
-   -ms-transition: width 1.5s ease-in-out;
-   -moz-transition: width 1.5s ease-in-out;
-   -o-transition: width 1.5s ease-in-out;
-   transition: width 1.5s ease-in-out;
 }
-.tooltip{
-   position:relative;
-   float:right;
+
+.hex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
-.tooltip > .tooltip-inner {
-   background-color: transparent;
-   padding: 1px 5px;
-   color: #b636ff;
-   font-weight: 500;
-   font-size: 12px;
-   border-radius: 0;
+
+.hex-item {
+    width: 150px;
+    height: 173.2px; /* Height for regular hexagon */
+    position: relative;
+    margin: 10px;
 }
-.popOver + .tooltip > .tooltip-arrow {
-   border-left: 6px solid transparent;
-   border-right: 6px solid transparent;
-   border-top: 6px solid #fff;
-   bottom: -1px;
-   transform: translateX(-50%);
-   margin-left: 0;
+
+.hexagon {
+    width: 100%;
+    height: 100%;
+    background: #34495e;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
+
+.hexagon:hover {
+    transform: scale(1.1);
+    background: #3b566e;
+    box-shadow: 0 8px 25px rgba(0, 200, 255, 0.5);
+}
+
+.skill-icon {
+    font-size: 28px;
+    color: #00c4ff;
+    margin-bottom: 8px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hexagon:hover .skill-icon {
+    color: #ff007a;
+    transform: rotate(360deg);
+}
+
+.hexagon h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ecf0f1;
+    margin: 0 0 5px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.proficiency {
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    background: #e74c3c;
+    padding: 3px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Proficiency-specific colors */
+.proficiency:where([data-level="Advanced"]) {
+    background: #2ecc71;
+}
+
+.proficiency:where([data-level="Intermediate"]) {
+    background: #f1c40f;
+}
+
+.proficiency:where([data-level="Beginner"]) {
+    background: #e74c3c;
+}
+
+.proficiency:where([data-level="Strong"]) {
+    background: #9b59b6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .section-heading h2 {
+        font-size: 36px;
+    }
+    .hex-item {
+        width: 130px;
+        height: 150px;
+    }
+    .hexagon h4 {
+        font-size: 14px;
+    }
+    .skill-icon {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    .section-heading h2 {
+        font-size: 30px;
+    }
+    .hex-grid {
+        gap: 10px;
+    }
+    .hex-item {
+        width: 110px;
+        height: 127px;
+    }
+    .hexagon {
+        padding: 10px;
+    }
+    .skill-icon {
+        font-size: 20px;
+    }
+    .hexagon h4 {
+        font-size: 13px;
+    }
+    .proficiency {
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+}
+</style>
+
+
 
 /*-------------------------------------
         7. Experience
